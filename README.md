@@ -255,6 +255,40 @@ O comando `uninstall` remove apenas arquivos criados pelo Reversa — nada do pr
 
 ---
 
+## Usando um fork local para desenvolvimento
+
+Se você estiver desenvolvendo uma versão personalizada do Reversa (fork) e quiser testá-la em um projeto legado:
+
+### Passo 1: Instale as dependências do fork
+
+```bash
+cd C:\app-dev\reversa-bez
+npm install
+```
+
+### Passo 2: Execute no projeto legado
+
+```bash
+cd C:\app-dev\meu-projeto-legado
+node C:\app-dev\reversa-bez\bin\reversa.js install
+```
+
+### Alternativa: Criar um atalho
+
+No projeto legado, crie um arquivo `reversa.bat`:
+
+```batch
+@echo off
+node C:\app-dev\reversa-bez\bin\reversa.js %*
+```
+
+Depois execute:
+```bash
+.\reversa.bat install
+```
+
+---
+
 ## Contribuindo
 
 Contribuições são bem-vindas. Abra uma issue para discutir antes de submeter um PR.
