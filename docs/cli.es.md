@@ -52,7 +52,8 @@ El menú de agentes lista equipos, no agentes individuales. El usuario elige a n
 2. `Migration Agents`
 3. `Code Forward Agents`
 4. `Pricing and Size Agents`
-5. `Translators N8N->Specs->Python` (desmarcado por defecto)
+5. `Product Strategy Agents`
+6. `Translators N8N->Specs->Python` (desmarcado por defecto)
 
 `Reversa Agents Core` se renderiza como un separator gris no seleccionable que visualmente muestra `(*)` como si fuera un ítem marcado y deshabilitado: el usuario lo ve, sabe que está incluido, y el cursor lo salta. Contiene todos los agentes de descubrimiento (Reversa, Scout, Archaeologist, Detective, Architect, Writer, Reviewer, Visor, Data Master, Design System, Agents Help, Reconstructor), por lo que el antiguo grupo "Discovery Add-ons" ya no existe como concepto separado. Aunque el menú oculta el detalle por agente, el resumen final de la instalación sigue desglosando el conteo por equipo (Discovery, Migration, Code Forward, Translators, Pricing).
 

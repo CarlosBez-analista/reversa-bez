@@ -14,6 +14,12 @@ Quando o usuário digitar `/reversa` ou a palavra `reversa` sozinha em uma mensa
 2. Se não encontrar em `.claude/skills/`, tente `.agents/skills/reversa/SKILL.md`
 3. Leia o SKILL.md na íntegra e siga exatamente as instruções do Reversa
 
+## Comandos disponíveis
+
+- **`/reversa`** - Iniciar ou retomar análise do projeto
+- **`/reversa-brief`** - Gerar pacote de contexto LLM-ready do repositório
+- **`/reversa-evolve`** - Planejar produto expandido (ex: CRM → CRM+ERP)
+
 ## Regra não-negociável
 
 Nunca apague, modifique ou sobrescreva arquivos pré-existentes do projeto legado.

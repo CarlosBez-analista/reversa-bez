@@ -9,6 +9,11 @@
 
 Reversa is a specification reverse-engineering framework. Install it inside a legacy project and it coordinates a team of specialized AI agents to analyze the existing code and generate complete, traceable specifications ready for use by any coding agent.
 
+It also includes product strategy modes:
+
+- **`/reversa-brief`** creates an LLM-ready repository context pack from the analyzed code and specs.
+- **`/reversa-evolve`** plans an expanded target product from the analyzed base, for example turning a CRM into a CRM + ERP product.
+
 ---
 
 ## Why Reversa exists
@@ -35,7 +40,7 @@ npx reversa install
 
 The installer will:
 1. Detect the AI engines present in the environment (Claude Code, Codex, Cursor, etc.)
-2. Ask which agents to install — all selected by default
+2. Ask which agent Teams to install - core, migration, forward, pricing, and product strategy are selected by default
 3. Collect project name, language, and preferences
 4. Copy agents to `.agents/skills/` (and `.claude/skills/` for Claude Code)
 5. Create the engine entry file (`CLAUDE.md`, `AGENTS.md`, etc.)
@@ -98,7 +103,7 @@ Reconnaissance  Excavation  Interpretation  Generation  Review
                                 Architect
 ```
 
-Independent agents (run at any phase): **Visor**, **Data Master**, **Design System**, **Tracer**
+Independent agents (run at any phase): **Visor**, **Data Master**, **Design System**, **Reversa Brief**, **Reversa Evolve**
 
 ---
 
@@ -120,11 +125,11 @@ Independent agents (run at any phase): **Visor**, **Data Master**, **Design Syst
 | Agent | Role |
 |-------|------|
 | **Reviewer** | Reviews specs, finds inconsistencies, and validates gaps with the user |
-| **Tracer** | Dynamic analysis: resolves gaps via logs, tracing, and real data (read-only) |
 | **Visor** | Documents the interface from screenshots — without needing the system to be running |
 | **Data Master** | Complete database analysis: DDL, migrations, ORM, ERD, triggers, procedures |
 | **Design System** | Extracts design tokens: colors, typography, spacing, themes, and components |
-| **Chronicler** | Documents code changes during development sessions |
+| **Reversa Brief** | Generates a compact repository brief for LLMs in `_reversa_sdd/brief/` |
+| **Reversa Evolve** | Plans an expanded product from the analyzed base in `_reversa_sdd/evolution/` |
 
 ### Translators (input adapters)
 
@@ -166,6 +171,8 @@ _reversa_sdd/
 ├── ui/                       # Interface specs (Visor)
 ├── database/                 # Database specs (Data Master)
 ├── design-system/            # Design tokens (Design System)
+├── brief/                    # LLM-ready repository context pack
+├── evolution/                # Expanded product plan and handoff
 └── traceability/
     ├── spec-impact-matrix.md # Which spec impacts which
     └── code-spec-matrix.md   # Code file to corresponding spec
@@ -212,6 +219,13 @@ npx reversa update       # Update agents to the latest version
 npx reversa add-agent    # Add an agent to the project
 npx reversa add-engine   # Add support for a new engine
 npx reversa uninstall    # Remove Reversa from the project
+```
+
+Product strategy agent commands:
+
+```bash
+/reversa-brief     # Generate an LLM-ready repository brief
+/reversa-evolve    # Plan an expanded product from the analyzed base
 ```
 
 The `update` command detects files you modified via SHA-256 and never overwrites customizations.

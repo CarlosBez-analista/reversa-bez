@@ -89,6 +89,7 @@ plugins:
             Guide with analogies: Guia com analogias
             Reversa (Orchestrator): Reversa (Orquestrador)
             Soul Extractor: Extrator de Alma
+            Product Strategy Agents: Product Strategy Agents
             Translators: Tradutores
             N8N Translator: N8N Translator
             Generated outputs: Saídas geradas
@@ -117,6 +118,7 @@ plugins:
             Guide with analogies: Guía con analogías
             Reversa (Orchestrator): Reversa (Orquestador)
             Soul Extractor: Extractor de Alma
+            Product Strategy Agents: Product Strategy Agents
             Translators: Traductores
             N8N Translator: N8N Translator
             Generated outputs: Salidas generadas
@@ -163,6 +165,8 @@ nav:
       - Overview: forward/index.md
     - Pricing and Size Agents:
       - Overview: pricing/index.md
+    - Product Strategy Agents:
+      - Overview: product-strategy/index.md
     - Translators N8N->Specs->Python:
       - N8N Translator: agentes/n8n.md
   - Generated outputs: saidas/index.md
