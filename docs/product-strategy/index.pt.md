@@ -1,33 +1,33 @@
 # Product Strategy Agents
 
-O Team **Product Strategy Agents** transforma as saídas do Reversa em conhecimento de produto reutilizável.
+O Team **Product Strategy Agents** transforma as saidas do Reversa em conhecimento de produto reutilizavel.
 
-Marcado por padrão no instalador.
+Marcado por padrao no instalador.
 
 ## Pipeline
 
 ```
-/reversa-brief       -> pacote de contexto do repositório para LLMs
+/reversa-brief       -> pacote de contexto do repositorio para LLMs
 /reversa-evolve      -> plano de produto alvo expandido
 ```
 
 ## Agentes
 
-| Agente | Função |
+| Agente | Funcao |
 |--------|--------|
-| `reversa-brief` | Gera `repo_brief.md`, `llm_context_pack.md`, `architecture_digest.md`, `domain_logic_digest.md` e `build_like_this.md` em `_reversa_sdd/brief/`. |
-| `reversa-evolve` | Planeja um produto expandido a partir da base analisada, gerando intenção, gaps, spec do produto alvo, novas capacidades, arquitetura, roadmap e handoff em `_reversa_sdd/evolution/`. |
+| `reversa-brief` | Gera `repo_brief.md`, `llm_context_pack.md`, `architecture_digest.md`, `domain_logic_digest.md`, `build_like_this.md`, `traceability.md` e `tasks.md` em `_reversa_sdd/brief/`. |
+| `reversa-evolve` | Planeja um produto expandido a partir da base analisada, gerando intencao, gaps, spec do produto alvo, novas capacidades, arquitetura, roadmap, rastreabilidade, tasks e handoff em `_reversa_sdd/evolution/`. |
 | `reversa-extract-soul` | Alias de compatibilidade do antigo Soul Extractor. Novos fluxos devem usar `reversa-brief`. |
 
 ## Exemplo
 
-Se o repositório analisado é um CRM como o Twenty e o alvo é CRM + ERP, `/reversa-evolve` separa:
+Se o repositorio analisado e um CRM como o Twenty e o alvo e CRM + ERP, `/reversa-evolve` separa:
 
-- base herdada: entidades de CRM, UI, automações, permissões;
-- expansão: financeiro, estoque, pedidos, compras, fiscal, relatórios operacionais;
-- integração: como os novos módulos ERP se conectam aos conceitos de CRM existentes.
+- base herdada: entidades de CRM, UI, automacoes, permissoes;
+- expansao: financeiro, estoque, pedidos, compras, fiscal, relatorios operacionais;
+- integracao: como os novos modulos ERP se conectam aos conceitos de CRM existentes.
 
-## Pastas de saída
+## Pastas de saida
 
 ```
 _reversa_sdd/
@@ -36,8 +36,11 @@ _reversa_sdd/
 │   ├── llm_context_pack.md
 │   ├── architecture_digest.md
 │   ├── domain_logic_digest.md
-│   └── build_like_this.md
+│   ├── build_like_this.md
+│   ├── traceability.md
+│   └── tasks.md
 └── evolution/
+    ├── tasks.md
     ├── product_intent.md
     ├── current_product_base.md
     ├── expansion_gap.md
@@ -45,5 +48,6 @@ _reversa_sdd/
     ├── new_capabilities.md
     ├── target_product_architecture.md
     ├── evolution_roadmap.md
+    ├── traceability.md
     └── handoff.md
 ```

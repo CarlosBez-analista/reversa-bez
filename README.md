@@ -128,8 +128,8 @@ Agentes independentes (executados em qualquer fase): **Visor**, **Data Master**,
 | **Visor** | Documenta a interface a partir de capturas de tela — sem precisar do sistema estar rodando |
 | **Data Master** | Análise completa do banco: DDL, migrações, ORM, ERD, triggers, procedures |
 | **Design System** | Extrai tokens de design: cores, tipografia, espaçamento, temas e componentes |
-| **Reversa Brief** | Gera um resumo compacto do repositório para LLMs em `_reversa_sdd/brief/` |
-| **Reversa Evolve** | Planeja um produto expandido a partir da base analisada em `_reversa_sdd/evolution/` |
+| **Reversa Brief** | Gera um resumo compacto do repositório para LLMs em `_reversa_sdd/brief/`, com `tasks.md` e `traceability.md` |
+| **Reversa Evolve** | Planeja um produto expandido a partir da base analisada em `_reversa_sdd/evolution/`, com `tasks.md`, `traceability.md` e `handoff.md` |
 
 ### Tradutores (adaptadores de entrada)
 
@@ -171,8 +171,8 @@ _reversa_sdd/
 ├── ui/                       # Especificações de interface (Visor)
 ├── database/                # Especificações de banco (Data Master)
 ├── design-system/           # Tokens de design (Design System)
-├── brief/                   # Pacote de contexto repo pronto para LLM
-├── evolution/              # Plano de produto expandido e handoff
+├── brief/                   # Pacote de contexto repo pronto para LLM, com tasks e rastreabilidade
+├── evolution/              # Plano de produto expandido, tasks, rastreabilidade e handoff
 └── traceability/
     ├── spec-impact-matrix.md # Qual spec impacta qual
     └── code-spec-matrix.md   # Arquivo de código para spec correspondente

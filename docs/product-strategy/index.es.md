@@ -13,10 +13,10 @@ Marcado por defecto en el instalador.
 
 ## Agentes
 
-| Agente | Función |
+| Agente | Funcion |
 |--------|---------|
-| `reversa-brief` | Genera `repo_brief.md`, `llm_context_pack.md`, `architecture_digest.md`, `domain_logic_digest.md` y `build_like_this.md` en `_reversa_sdd/brief/`. |
-| `reversa-evolve` | Planea un producto expandido a partir de la base analizada, generando intención, gaps, spec del producto objetivo, nuevas capacidades, arquitectura, roadmap y handoff en `_reversa_sdd/evolution/`. |
+| `reversa-brief` | Genera `repo_brief.md`, `llm_context_pack.md`, `architecture_digest.md`, `domain_logic_digest.md`, `build_like_this.md`, `traceability.md` y `tasks.md` en `_reversa_sdd/brief/`. |
+| `reversa-evolve` | Planea un producto expandido a partir de la base analizada, generando intencion, gaps, spec del producto objetivo, nuevas capacidades, arquitectura, roadmap, trazabilidad, tasks y handoff en `_reversa_sdd/evolution/`. |
 | `reversa-extract-soul` | Alias de compatibilidad del antiguo Soul Extractor. Los nuevos flujos deben usar `reversa-brief`. |
 
 ## Ejemplo
@@ -24,5 +24,30 @@ Marcado por defecto en el instalador.
 Si el repositorio analizado es un CRM como Twenty y el objetivo es CRM + ERP, `/reversa-evolve` separa:
 
 - base heredada: entidades CRM, UI, automatizaciones, permisos;
-- expansión: financiero, inventario, pedidos, compras, fiscal, reportes operacionales;
-- integración: cómo los nuevos módulos ERP se conectan con los conceptos CRM existentes.
+- expansion: financiero, inventario, pedidos, compras, fiscal, reportes operacionales;
+- integracion: como los nuevos modulos ERP se conectan con los conceptos CRM existentes.
+
+## Carpetas de salida
+
+```
+_reversa_sdd/
+├── brief/
+│   ├── repo_brief.md
+│   ├── llm_context_pack.md
+│   ├── architecture_digest.md
+│   ├── domain_logic_digest.md
+│   ├── build_like_this.md
+│   ├── traceability.md
+│   └── tasks.md
+└── evolution/
+    ├── tasks.md
+    ├── product_intent.md
+    ├── current_product_base.md
+    ├── expansion_gap.md
+    ├── target_product_spec.md
+    ├── new_capabilities.md
+    ├── target_product_architecture.md
+    ├── evolution_roadmap.md
+    ├── traceability.md
+    └── handoff.md
+```
