@@ -11,6 +11,16 @@
   "phase": null,
   "completed": [],
   "pending": ["reconhecimento", "escavacao", "interpretacao", "geracao", "revisao"],
+  "evoluti": {
+    "output_root": null,
+    "current_phase": 0,
+    "phase_name": null,
+    "completed_phases": [],
+    "pending_phases": ["decisao", "fundacao", "dominio", "expansao", "integracao", "validacao"],
+    "modules_done": [],
+    "modules_pending": [],
+    "target_product": null
+  },
   "checkpoints": {},
   "engines": [],
   "agents": [],

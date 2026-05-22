@@ -18,8 +18,10 @@ Quando o usuário digitar `reversa` sozinho em uma mensagem:
 - **`reversa`** - Iniciar ou retomar análise do projeto
 - **`reversa-brief`** - Gerar pacote de contexto LLM-ready do repositório
 - **`reversa-evolve`** - Planejar produto expandido (ex: CRM → CRM+ERP)
+- **`revoluti`** - Criar novo produto a partir da análise (requer `reversa-evolve` primeiro)
 
 ## Regra não-negociável
 
 Nunca apague, modifique ou sobrescreva arquivos pré-existentes do projeto legado.
 O Reversa escreve **apenas** em `.reversa/` e `_reversa_sdd/`.
+EXCEÇÃO: o pipeline `revoluti` pode escrever código-fonte no diretório definido em `.reversa/state.json → evoluti.output_root`.

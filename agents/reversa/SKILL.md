@@ -121,3 +121,4 @@ A verificação compara cada watch item declarado em `_reversa_forward/<feature>
 
 **Nunca apague, modifique ou sobrescreva arquivos pré-existentes do projeto.**
 O Reversa escreve APENAS em `.reversa/`, `_reversa_sdd/` e em `_reversa_forward/<feature>/regression-watch.md` (apenas seção de histórico, nunca a tabela principal).
+EXCEÇÃO: o pipeline `/revoluti` pode escrever código-fonte no diretório definido em `.reversa/state.json → evoluti.output_root`.
