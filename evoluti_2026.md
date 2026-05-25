@@ -594,3 +594,62 @@ Compare `.reversa/version` com `https://registry.npmjs.org/reversa/latest`.
 8. Adicionar `evoluti` time ao installer/prompts
 9. Integrar checkpoints com `.reversa/state.json`
 10. Testar pipeline completo contra um caso real
+
+---
+
+## Anexo: Entendendo o Funcionamento da Criação de Novo Produto
+
+A criação de um novo produto no framework **Reversa** é realizada de forma sistemática através da pipeline **Evoluti 2026** (invocada pelo comando `/revoluti`). Pode ser dividida em três pilares principais: o fluxo de dados, as 6 fases de construção e o isolamento de escrita.
+
+### 1. O Fluxo de Trabalho (Posicionamento)
+
+A criação do novo produto é alimentada pela inteligência extraída do código legado:
+
+```text
+[Código Legado] 
+      │
+      ▼
+1. /reversa ──────────► Mapeia o legado e gera a especificação técnica (_reversa_sdd/)
+      │
+      ▼
+2. /reversa-brief ────► Compacta o contexto do legado para IAs (_reversa_sdd/brief/)
+      │
+      ▼
+3. /reversa-evolve ───► Planeja e desenha a evolução do produto (_reversa_sdd/evolution/)
+      │
+      ▼
+4. [EVOLUTI 2026] ────► Constrói o novo produto baseado no planejamento (/revoluti)
+```
+
+Enquanto o `/reversa-evolve` **planeja** (mapeia gaps, define requisitos e desenha a arquitetura-alvo), o **Evoluti 2026** **constrói** o código-fonte do novo sistema.
+
+### 2. As 6 Fases da Construção (`/revoluti`)
+
+A pipeline de desenvolvimento é dividida em 6 fases sequenciais, orquestradas por agentes especializados:
+
+| Fase | Nome | Agente Responsável | Atividade Principal | Artefato Gerado |
+| :--- | :--- | :--- | :--- | :--- |
+| **Fase 1** | **Decisão** | **Conselheiro** | Resolve pendências com o usuário, valida a stack tecnológica (ex: React, Next.js, FastAPI, PostgreSQL) e define a ordem de construção. | `blueprint.md` |
+| **Fase 2** | **Fundação** | **Construtor** | Configura a estrutura do novo projeto, inicializa o banco (migrations base), cria CI/CD, setup de Auth e convenções de código. | `foundation_report.md` + Estrutura do Projeto |
+| **Fase 3** | **Núcleo** | **Domínio** | Cria a "espinha dorsal": as entidades centrais compartilhadas (ex: Usuário, Organização) e as capacidades herdadas do legado. | `core_report.md` + Código-fonte do Núcleo |
+| **Fase 4** | **Expansão** | **Módulo** | Constrói cada novo módulo planejado no blueprint de forma isolada, criando models, regras de negócio, endpoints e telas. | `module_<nome>.md` + Código dos Módulos |
+| **Fase 5** | **Integração** | **Orquestrador** | Conecta os módulos. Codifica os fluxos cruzados, eventos/mensageria e integrações com serviços externos (ex: gateways de pagamento). | `integration_report.md` + Código de Integração |
+| **Fase 6** | **Validação** | **Verificador** | Audita o produto contra as especificações. Executa suites de testes, gera relatórios de qualidade e prepara o deploy de produção. | `validation_report.md` + Build final de Produção |
+
+### 3. O Isolamento de Escrita (`output_root`)
+
+Para manter a integridade do sistema legado (que o Reversa lê sem alterar), o **Evoluti 2026** introduz a configuração **`output_root`**:
+
+1. Na **Fase 1 (Decisão)**, o **Conselheiro** alinha em qual pasta externa o novo produto deve ser criado (ex: `../novo-erp`).
+2. O caminho é gravado na propriedade `evoluti.output_root` no `.reversa/state.json`.
+3. Os agentes construtores (Fases 2 a 5) recebem permissão para escrever código **exclusivamente no diretório apontado por `output_root`**.
+4. Isso garante que o projeto legado original permaneça intacto.
+
+### 4. Controle e Resiliência da Pipeline
+
+Você pode controlar a criação de forma granular através do terminal do agente:
+
+* **`/revoluti`**: Executa todo o processo (Fases 1 a 6) sequencialmente.
+* **`/revoluti --phase <1-6>`**: Executa apenas uma etapa específica.
+* **`/revoluti --resume`**: Retoma a construção do último checkpoint em `.reversa/state.json` caso interrompido.
+* **`/revoluti --status`**: Mostra o progresso atual, fases concluídas e módulos pendentes.
